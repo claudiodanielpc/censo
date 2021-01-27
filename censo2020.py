@@ -95,7 +95,7 @@ fontsize=14,fontweight="bold", loc="left")
 plt.xlim([-7,7])
 plt.ylim([-7,7])
 ##títulos de ejes
-plt.xlabel('Tasa de crecimiento promedio anual de viviendas particulares habitadas\nFuente: @claudiodanielpc con información de INEGI. Censo de Población y Vivienda 2020')
+plt.xlabel('Tasa de crecimiento promedio anual de viviendas particulares habitadas\nFuente: @claudiodanielpc con información de INEGI. Censos de Población y Vivienda 2010 y 2020')
 plt.ylabel("Tasa de crecimiento promedio anual de viviendas particulares deshabitadas")
 
 ##Guardar y mostrar la gráfica
