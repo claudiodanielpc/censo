@@ -7,6 +7,21 @@ import os
 import io
 from slugify import slugify
 
+##Seleccionar directorio de trabajo
+dir = os.chdir('C:/Users/ALIENWARE/Documents/censo2020/jal')
+
+urls = ['https://www.inegi.org.mx/contenidos/programas/ccpv/2020/microdatos/ageb_manzana/RESAGEBURB_14_2020_csv.zip',
+        'https://www.inegi.org.mx/contenidos/productos/prod_serv/contenidos/espanol/bvinegi/productos/geografia/marcogeo/889463807469/14_jalisco.zip',
+        'https://www.inegi.org.mx/contenidos/programas/ccpv/2020/microdatos/ageb_manzana/RESAGEBURB_25_2020_csv.zip',
+        'https://www.inegi.org.mx/contenidos/productos/prod_serv/contenidos/espanol/bvinegi/productos/geografia/marcogeo/889463807469/25_sinaloa.zip'
+        ]
+
+# Descomprimir y extraer los archivos
+for url in urls:
+    r = requests.get(url)
+    z = zipfile.ZipFile(io.BytesIO(r.content))
+    z.extractall()
+
 csv_args = {
     "na_values": ['N/D', '*'],
     "usecols": [
