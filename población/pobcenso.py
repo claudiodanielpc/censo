@@ -113,6 +113,11 @@ for z in munshp['CVE_ENT'].unique():
     cb.set_title("%",fontsize=20)
     cb.tick_params(labelsize=20)
     ax.axis( 'off' )
+    
+    if z == "06": # Colima
+        ax.set_ylim(0.74e6, 0.85e6)
+        ax.set_xlim(2.19e6, 2.38e6)
+    
     # Fuente
     ax.annotate( 'Fuente: Elaborado por CANADEVI Nacional. Gerencia de Fondos de Vivienda\n'
                  'Coordinación de Indicadores de Vivienda con datos de INEGI. Censo de Población y Vivienda 2020',
@@ -124,38 +129,4 @@ for z in munshp['CVE_ENT'].unique():
         # Salvar
 
     plt.savefig( f'pob/{z}.png',format='png',
-                 dpi=600,transparent=False )
-
-
-
-
-
-
-fig,ax = plt.subplots( figsize=(12,12) )
-    ax.set_title( 'Colima. Población por municipio',
-                  fontsize=20,fontname='Century Gothic',fontweight='bold',color='black' )
-
-    munshp[munshp['CVE_ENT'] == "06"].plot( column="pct",
-                  cmap="YlOrRd",
-                  linewidth=0.2,ax=ax,
-                  edgecolor='.5',legend=True,
-                  legend_kwds={
-                               'orientation': "horizontal"
-                                })
-    #Se modifica la barra de color de la coropleta
-    cb = ax.get_figure().get_axes()[1]
-    cb.set_title("%",fontsize=20)
-    cb.tick_params(labelsize=20)
-    ax.axis( 'off' )
-    # Fuente
-    ax.annotate( 'Fuente: Elaborado por CANADEVI Nacional. Gerencia de Fondos de Vivienda\n'
-                 'Coordinación de Indicadores de Vivienda con datos de INEGI. Censo de Población y Vivienda 2020',
-                 xy=(0.1,.08),
-                 xycoords='figure fraction',
-                 horizontalalignment='left',verticalalignment='top',fontsize=13,color='black',
-                 fontname='Century Gothic' )
-
-        # Salvar
-
-    plt.savefig( f'pob/06x.png',format='png',
                  dpi=600,transparent=False )
