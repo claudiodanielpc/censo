@@ -114,4 +114,4 @@ en hacinamiento",
 
 #Salvar
 ggsave("vivihacmun.png", height = 10,
-       width = 20, units="in", dpi=600)
+       width = 20, units="in", dpi=300)
