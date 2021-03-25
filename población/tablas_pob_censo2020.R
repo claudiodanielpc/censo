@@ -5,7 +5,7 @@ rm(list=ls())
 
 
 ##Ruta de almacenamiento de los archivos generados
-setwd("C:/Users/ALIENWARE/Documents/GitHub/censo/población")
+setwd("C:/Users/ALIENWARE/Documents/censo2020/pob")
 
 
 if(!require('pacman')) install.packages('pacman')
@@ -26,13 +26,13 @@ download.file(url,
               destfile = temp)
 
 unzip(temp,
-      exdir = "C:/Users/ALIENWARE/Documents/censo2020/")
+      exdir = "C:/Users/ALIENWARE/Documents/censo2020")
 unlink(temp)
 
 
 #Lectura y limpieza====
 ##Importar datos y limpiar
-iter<-read.csv("C:/Users/ALIENWARE/Documents/censo2020/ITER_NALCSV20.csv",
+iter<-read.csv("C:/Users/ALIENWARE/Documents/censo2020/iter_00_cpv2020/conjunto_de_datos/conjunto_de_datos_iter_00CSV20.csv",
               encoding ="UTF-8",check.names = T)%>%
   janitor::clean_names()%>%
   ##Renombrar variable de clave de la entidad y darle formato
@@ -88,7 +88,8 @@ num_ent<-unique(iter$entidad)
             col.names = c("Municipio",
                           "Población",
                           "% del total"))%>%
-      kable_styling(full_width = F, font_size = 20)%>%
+      kable_styling(full_width = F, font_size = 20,
+                    html_font = "Century Gothic")%>%
       row_spec(0, bold = F, color = "black", background = "#feb24c")%>%
       footnote(general = "Elaborado por CANADEVI Nacional. Gerencia de Fondos de Vivienda. 
 Coordinación de Indicadores de Vivienda con datos de INEGI. Censo de Población y Vivienda, 2020.",
