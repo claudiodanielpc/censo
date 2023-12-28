@@ -17,7 +17,7 @@ directorio=paste0(raiz,"/datoscenso/")
 setwd(directorio)
 
 #Se establece que, si no existe el archivo viviendas, se descargue el zip de la URL de INEGI
-if (!file.exists("Personas00.csv")){
+if (!file.exists("Personas00.CSV")){
   download.file(url,destfile = "censo.zip",quiet = FALSE, mode="wb")
 #Usaremos Winrar como opción para extracción
   winrar=shQuote("C:/Program Files/WinRAR/WinRAR")
@@ -28,4 +28,3 @@ if (!file.exists("Personas00.csv")){
   system(cmd)
   unlink("datoscenso/censo.zip")
 }
-
